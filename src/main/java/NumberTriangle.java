@@ -72,7 +72,16 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        return -1;
+        NumberTriangle head = this;
+        for (int i = 0; i < path.length(); i++) {
+            char branch = path.charAt(i);
+            if (branch == 'r') {
+                head = head.right;
+            } else {
+                head = head.left;
+            }
+        }
+        return head.root;
     }
 
     /** Read in the NumberTriangle structure from a file.
